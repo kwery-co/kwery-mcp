@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "kwery": {
+      "url": "https://api.kwery.co/mcp",
+      "headers": {
+        "x-api-key": "${env:KWERY_API_KEY}"
+      }
+    }
+  }
+}

@@ -5,22 +5,25 @@ more, as tools for your AI assistant. Ask in plain language, for example *"Where
 4006381333962 cheapest in Germany?"*, and the assistant looks it up on the marketplaces live.
 
 kwery is a hosted remote [MCP](https://modelcontextprotocol.io) server. There is nothing to
-install: point your client at the URL below and send your API key.
+install: point your client at the URL below and sign in with your kwery account, or send your
+API key. Works with Claude, Grok, Perplexity, Cursor, VS Code, Gemini CLI and any other client
+that supports remote MCP.
 
 | | |
 |---|---|
 | Server URL | `https://api.kwery.co/mcp` |
 | Transport | Streamable HTTP |
-| Authentication | Your `kwy_live_` API key in the `x-api-key` header (or `Authorization: Bearer`) |
+| Authentication | Sign in with your kwery account (OAuth), or your `kwy_live_` API key in the `x-api-key` header (or `Authorization: Bearer`) |
 | Registry | `co.kwery/mcp` in the [official MCP Registry](https://registry.modelcontextprotocol.io) |
 | Full guide | [docs.kwery.co/guides/mcp](https://docs.kwery.co/guides/mcp) |
 
-**Get an API key:** [sign up at kwery.co](https://kwery.co/signup); the free plan's credits work
-with MCP too.
+**Get an account:** [sign up at kwery.co](https://kwery.co/signup); the free plan's credits work
+with MCP too. Apps that offer sign-in (Claude, Grok) need no API key; only owners and admins of
+a kwery organisation can connect an app that way.
 
 ## Connect
 
-Replace `kwy_live_...` with your key.
+Where a key is needed, replace `kwy_live_...` with your key.
 
 ### Claude Code
 
@@ -33,12 +36,13 @@ Add `--scope user` to use it in every project.
 
 ### Claude (claude.ai and Claude Desktop)
 
-**Customize → Connectors → + Add → Add custom connector**
+**Customize → Connectors → + Add → Add custom connector**: name `kwery`, URL
+`https://api.kwery.co/mcp`, then **Continue**.
 
-1. Name `kwery`, URL `https://api.kwery.co/mcp`, then **Continue**.
-2. Authentication: **No sign-in**. Claude may tag "Sign in now" as *Detected*; the API key header
-   below is what kwery uses instead.
-3. **Add header**: name `x-api-key`, value your key, **Required** ticked. Then **Add**.
+- **Sign in:** keep **Sign in now** and **Register automatically**, click **Add**, then
+  **Connect**, log in to kwery and click **Allow**.
+- **API key:** choose **No sign-in**, then **Add header** with name `x-api-key`, value your key,
+  **Required** ticked, and click **Add**.
 
 ### Cursor
 
@@ -73,6 +77,35 @@ Add `--scope user` to use it in every project.
   }
 }
 ```
+
+### Grok
+
+grok.com → **Connectors → New Connector → Custom**: name `kwery`, URL `https://api.kwery.co/mcp`,
+**Add Connector**, then log in to kwery and click **Allow**.
+
+### Perplexity (Pro or higher)
+
+**Settings → Connectors → Add custom → Add MCP connector**: name `kwery`, URL
+`https://api.kwery.co/mcp`, **Advanced → Authentication: API Key**, paste your key, tick the
+notice, **Add**. In a chat, switch it on via **+ → Use a plugin → kwery**.
+
+### Gemini CLI
+
+`~/.gemini/settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "kwery": {
+      "httpUrl": "https://api.kwery.co/mcp",
+      "headers": { "x-api-key": "$KWERY_API_KEY" }
+    }
+  }
+}
+```
+
+Gemini CLI only loads MCP servers in trusted folders: `/permissions trust .`, choose **Trust this
+folder**, restart, then `/mcp`. The Gemini app (gemini.google.com) can't add custom connectors.
 
 ### Other clients
 

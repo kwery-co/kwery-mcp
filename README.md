@@ -1,7 +1,7 @@
 # kwery MCP server
 
-Live prices, offers and trust scores from Amazon, Google Shopping, Idealo, eBay, Kaufland and
-more, as tools for your AI assistant. Ask in plain language, for example *"Where is GTIN
+Live prices, offers and sellers by EAN/GTIN from Amazon, idealo, Google Shopping and 13 more
+marketplaces, as tools for your AI assistant. Ask in plain language, for example *"Where is GTIN
 4006381333962 cheapest in Germany?"*, and the assistant looks it up on the marketplaces live.
 
 kwery is a hosted remote [MCP](https://modelcontextprotocol.io) server. There is nothing to

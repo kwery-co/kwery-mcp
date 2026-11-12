@@ -12,7 +12,7 @@ install: point your client at the URL below and send your API key.
 | Server URL | `https://api.kwery.co/mcp` |
 | Transport | Streamable HTTP |
 | Authentication | Your `kwy_live_` API key in the `x-api-key` header (or `Authorization: Bearer`) |
-| Registry | `co.kwery/price-data` in the [official MCP Registry](https://registry.modelcontextprotocol.io) |
+| Registry | `co.kwery/mcp` in the [official MCP Registry](https://registry.modelcontextprotocol.io) |
 | Full guide | [docs.kwery.co/guides/mcp](https://docs.kwery.co/guides/mcp) |
 
 **Get an API key:** [sign up at kwery.co](https://kwery.co/signup); the free plan's credits work

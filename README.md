@@ -11,7 +11,7 @@ that supports remote MCP.
 
 | | |
 |---|---|
-| Server URL | `https://api.kwery.co/mcp` |
+| Server URL | `https://api.kwery.co/mcp?ref=github` |
 | Transport | Streamable HTTP |
 | Authentication | Sign in with your kwery account (OAuth), or your `kwy_live_` API key in the `x-api-key` header (or `Authorization: Bearer`) |
 | Registry | `co.kwery/mcp` in the [official MCP Registry](https://registry.modelcontextprotocol.io) |
@@ -28,7 +28,7 @@ Where a key is needed, replace `kwy_live_...` with your key.
 ### Claude Code
 
 ```bash
-claude mcp add --transport http kwery https://api.kwery.co/mcp \
+claude mcp add --transport http kwery "https://api.kwery.co/mcp?ref=github" \
   --header "x-api-key: kwy_live_..."
 ```
 
@@ -37,7 +37,7 @@ Add `--scope user` to use it in every project.
 ### Claude (claude.ai and Claude Desktop)
 
 **Customize → Connectors → + Add → Add custom connector**: name `kwery`, URL
-`https://api.kwery.co/mcp`, then **Continue**.
+`https://api.kwery.co/mcp?ref=github`, then **Continue**.
 
 - **Sign in:** keep **Sign in now** and **Register automatically**, click **Add**, then
   **Connect**, log in to kwery and click **Allow**.
@@ -58,7 +58,7 @@ Authentication **OAuth**, tick **I understand and want to continue**, **Create a
 {
   "mcpServers": {
     "kwery": {
-      "url": "https://api.kwery.co/mcp",
+      "url": "https://api.kwery.co/mcp?ref=github",
       "headers": { "x-api-key": "${env:KWERY_API_KEY}" }
     }
   }
@@ -77,7 +77,7 @@ Authentication **OAuth**, tick **I understand and want to continue**, **Create a
   "servers": {
     "kwery": {
       "type": "http",
-      "url": "https://api.kwery.co/mcp",
+      "url": "https://api.kwery.co/mcp?ref=github",
       "headers": { "x-api-key": "${input:kwery-api-key}" }
     }
   }
@@ -92,7 +92,7 @@ grok.com → **Connectors → New Connector → Custom**: name `kwery`, URL `htt
 ### Perplexity (Pro or higher)
 
 **Settings → Connectors → Add custom → Add MCP connector**: name `kwery`, URL
-`https://api.kwery.co/mcp`, **Advanced → Authentication: API Key**, paste your key, tick the
+`https://api.kwery.co/mcp?ref=github`, **Advanced → Authentication: API Key**, paste your key, tick the
 notice, **Add**. In a chat, switch it on via **+ → Use a plugin → kwery**.
 
 ### Gemini CLI
@@ -103,7 +103,7 @@ notice, **Add**. In a chat, switch it on via **+ → Use a plugin → kwery**.
 {
   "mcpServers": {
     "kwery": {
-      "httpUrl": "https://api.kwery.co/mcp",
+      "httpUrl": "https://api.kwery.co/mcp?ref=github",
       "headers": { "x-api-key": "$KWERY_API_KEY" }
     }
   }
@@ -116,7 +116,7 @@ folder**, restart, then `/mcp`. The Gemini app (gemini.google.com) can't add cus
 ### Other clients
 
 Any client that supports remote MCP servers over Streamable HTTP with a custom header: use
-`https://api.kwery.co/mcp` and send `x-api-key`.
+`https://api.kwery.co/mcp?ref=github` and send `x-api-key`.
 
 ## Tools
 

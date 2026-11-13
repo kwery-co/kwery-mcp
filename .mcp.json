@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "kwery": {
-      "url": "https://api.kwery.co/mcp",
+      "url": "https://api.kwery.co/mcp?ref=cursordir",
       "headers": {
         "x-api-key": "${env:KWERY_API_KEY}"
       }

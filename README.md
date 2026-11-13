@@ -123,6 +123,7 @@ Any client that supports remote MCP servers over Streamable HTTP with a custom h
 | Tool | Use it for | Cost |
 |---|---|---|
 | `get_product_offers` | One product on one marketplace: price, offers and sellers | The source's credit rate |
+| `get_price_history` | Price history of one product: idealo (lowest price per day, up to 2 years) or Google Shopping (per seller, up to a year) | The source's credit rate |
 | `compare_prices` | One product on up to 5 marketplaces, ranked by price | The sum of the sources that returned a result |
 | `submit_batch` | Up to 1,000 identifiers on one marketplace as a background job | Estimate first, charged per result |
 | `get_batch_status` | Progress of a batch job; for a lookup that ran past its wait, waits for it and returns the result | Free |

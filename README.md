@@ -122,10 +122,10 @@ Any client that supports remote MCP servers over Streamable HTTP with a custom h
 
 | Tool | Use it for | Cost |
 |---|---|---|
-| `get_product_offers` | One product on one marketplace: price, offers, trust score | The source's credit rate |
+| `get_product_offers` | One product on one marketplace: price, offers and sellers | The source's credit rate |
 | `compare_prices` | One product on up to 5 marketplaces, ranked by price | The sum of the sources that returned a result |
 | `submit_batch` | Up to 1,000 identifiers on one marketplace as a background job | Estimate first, charged per result |
-| `get_batch_status` | Progress of a batch job | Free |
+| `get_batch_status` | Progress of a batch job; for a lookup that ran past its wait, waits for it and returns the result | Free |
 | `get_batch_results` | Results of a finished job, paged | Free |
 | `list_sources` | Marketplaces, countries, identifier types and credit rates | Free |
 | `get_account` | Plan, credit balance and credits used | Free |
@@ -133,7 +133,8 @@ Any client that supports remote MCP servers over Streamable HTTP with a custom h
 Identifiers: GTIN/EAN, ASIN (Amazon), the marketplace's own product ID, and PZN where supported.
 Prompts `price_check` and `catalog_sweep` and the resource `kwery://sources` are included.
 
-`lowest_price` is the cheapest new, in-stock offer including shipping. Every result carries a
+`lowest_price` is the cheapest new, in-stock offer including shipping. Each offer comes with its
+seller, price, shipping and condition. Every result also carries a
 [trust score](https://docs.kwery.co/guides/trust); below 0.7 means a person should look before
 acting on it.
 
@@ -147,8 +148,8 @@ acting on it.
 ## Pricing and limits
 
 MCP calls use the same credits as the [kwery API](https://kwery.co/pricing). Cached results and
-failed lookups are free. Lookups wait up to 50 seconds; if offers are still loading, the
-assistant gets what has arrived and can fetch the rest later. More in the
+failed lookups are free. Lookups wait up to 50 seconds; a slower one returns a job ID,
+and `get_batch_status` waits up to 45 seconds more for the result. More in the
 [guide](https://docs.kwery.co/guides/mcp).
 
 ## Support

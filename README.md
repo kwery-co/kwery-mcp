@@ -6,7 +6,7 @@ marketplaces, as tools for your AI assistant. Ask in plain language, for example
 
 kwery is a hosted remote [MCP](https://modelcontextprotocol.io) server. There is nothing to
 install: point your client at the URL below and sign in with your kwery account, or send your
-API key. Works with Claude, Grok, Perplexity, Cursor, VS Code, Gemini CLI and any other client
+API key. Works with ChatGPT, Claude, Grok, Perplexity, Cursor, VS Code, Gemini CLI and any other client
 that supports remote MCP.
 
 | | |
@@ -18,7 +18,7 @@ that supports remote MCP.
 | Full guide | [docs.kwery.co/guides/mcp](https://docs.kwery.co/guides/mcp) |
 
 **Get an account:** [sign up at kwery.co](https://kwery.co/signup); the free plan's credits work
-with MCP too. Apps that offer sign-in (Claude, Grok) need no API key; only owners and admins of
+with MCP too. Apps that offer sign-in (ChatGPT, Claude, Grok) need no API key; only owners and admins of
 a kwery organisation can connect an app that way.
 
 ## Connect
@@ -43,6 +43,12 @@ Add `--scope user` to use it in every project.
   **Connect**, log in to kwery and click **Allow**.
 - **API key:** choose **No sign-in**, then **Add header** with name `x-api-key`, value your key,
   **Required** ticked, and click **Add**.
+
+### ChatGPT (Plus or higher)
+
+**Plugins → Add → Add custom MCP server**: name `kwery`, Server URL `https://api.kwery.co/mcp`,
+Authentication **OAuth**, tick **I understand and want to continue**, **Create as a plugin**. Then
+**Connect kwery**, log in to kwery and click **Allow**. **Try in chat** starts a chat that uses it.
 
 ### Cursor
 
